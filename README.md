@@ -1,5 +1,5 @@
 # jsonly
-[<img src="https://img.shields.io/pypi/v/jsonly.svg">](https://pypi.python.org/pypi/jsonly)
+[<img src="https://img.shields.io/pypi/v/jsonly.svg">](https://pypi.python.org/pypi/jsonly)<br>
 json을 이용하여 DB 시스템을 사용하시는 분들께 바칩니다.
 ## **Install**
 ```

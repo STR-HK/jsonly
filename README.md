@@ -1,7 +1,7 @@
 # jsonly
 
 [<img src="https://img.shields.io/pypi/v/jsonly.svg">](https://pypi.python.org/pypi/jsonly)<br>
-json을 이용하여 DB 시스템을 사용하시는 분들께 바칩니다.
+Dedicated to those who use DB systems with json.
 
 ## **Install**
 
@@ -16,34 +16,34 @@ pip install jsonly
 ```json
 # data.json (default)
 {
-  "기본": {
-    "사과": "애플"
+  "default": {
+    "a": "apple"
   },
-  "하나": "일",
-  "둘": "이"
+  "one": "first",
+  "two": "second"
 }
 ```
 
 ### **GET**
 
-데이터를 불러올 때 사용하는 메소드
+Method to use when fetching data
 
 ```py
 # get.py
 from jsonly import Connect
 
 connect = Connect(path="data.json")
-print(connect.get(path="기본/사과"))
+print(connect.get(path="default/a"))
 ```
 
 ```
 # result
->>> 애플
+>>> apple
 ```
 
 ### **SET**
 
-데이터를 덮어씌울 때 사용하는 메소드
+Method to use when overwriting data
 
 ```py
 # set.py
@@ -51,7 +51,7 @@ from jsonly import Connect
 
 connect = Connect(path="data.json")
 
-data = {"기본중에" : "기본"}
+data = {"this" : "default"}
 print(connect.set(data=data))
 ```
 
@@ -63,13 +63,13 @@ print(connect.set(data=data))
 ```json
 # data.json (modified from default)
 {
-    "기본중에": "기본"
+    "this": "default"
 }
 ```
 
 ### **UPDATE**
 
-데이터를 루트 경로에 추가할 때 사용하는 메소드
+Method to use when adding data to the root path
 
 ```py
 # update.py
@@ -77,7 +77,7 @@ from jsonly import Connect
 
 connect = Connect(path="data.json")
 
-data = {"새로운" : "데이터"}
+data = {"new" : "data"}
 print(connect.update(data=data))
 ```
 
@@ -89,18 +89,18 @@ print(connect.update(data=data))
 ```json
 # data.json (modified from default)
 {
-    "기본": {
-        "사과": "애플"
+    "default": {
+        "a": "apple"
     },
-    "하나": "일",
-    "둘": "이",
-    "새로운": "데이터"
+    "one": "first",
+    "two": "second",
+    "new": "data"
 }
 ```
 
 ### **INSERT**
 
-데이터를 특정 경로에 추가할 때 사용하는 메소드
+Method to use when adding data to a specific path
 
 ```py
 # insert.py
@@ -108,8 +108,8 @@ from jsonly import Connect
 
 connect = Connect(path="data.json")
 
-data = {"데이터" : "삽입"}
-print(connect.insert(data=data, path='기본'))
+data = {"data" : "insert"}
+print(connect.insert(data=data, path='default'))
 ```
 
 ```
@@ -120,10 +120,10 @@ print(connect.insert(data=data, path='기본'))
 ```json
 # data.json (modified from default)
 {
-    "기본": {
-        "데이터": "삽입"
+    "default": {
+        "data": "insert"
     },
-    "하나": "일",
-    "둘": "이",
+    "one": "first",
+    "two": "second",
 }
 ```
